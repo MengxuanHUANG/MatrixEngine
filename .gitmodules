@@ -1,0 +1,6 @@
+[submodule "MatrixEngine/vendor/spdlog"]
+	path = MatrixEngine/vendor/spdlog
+	url = https://github.com/gabime/spdlog
+[submodule "MatrixEngine/vendor/GLFW"]
+	path = MatrixEngine/vendor/GLFW
+	url = https://github.com/TheCherno/glfw.git
