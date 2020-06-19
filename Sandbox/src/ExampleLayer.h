@@ -14,16 +14,16 @@ public:
 	{
 		MX_CLIENT_WARN("{0} Attach!", m_Name);
 	}
-	void OnDetch() 
+	void OnDetach() 
 	{
 	}
 	void OnEvent(MatrixEngine::Event& event)
 	{
 	}
-	void OnUpdata() 
+	void OnUpdate() 
 	{
 	}
-	void OnImGuiUpdate() 
+	void OnImGuiRender() 
 	{
 	}
 };

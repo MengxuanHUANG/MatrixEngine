@@ -77,7 +77,7 @@
       <PrecompiledHeaderFile>MXpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;MX_PLATFORM_WINDOWS;MX_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -94,7 +94,7 @@
       <PrecompiledHeaderFile>MXpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;MX_PLATFORM_WINDOWS;MX_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -115,7 +115,7 @@
       <PrecompiledHeaderFile>MXpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;MX_PLATFORM_WINDOWS;MX_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -133,20 +133,29 @@
   <ItemGroup>
     <ClInclude Include="src\MXpch.h" />
     <ClInclude Include="src\MatrixEngine.h" />
-    <ClInclude Include="src\MatrixEngine\Core.h" />
     <ClInclude Include="src\MatrixEngine\Core\Application.h" />
     <ClInclude Include="src\MatrixEngine\Core\Core.h" />
     <ClInclude Include="src\MatrixEngine\Core\EntryPoint.h" />
+    <ClInclude Include="src\MatrixEngine\Core\Input.h" />
+    <ClInclude Include="src\MatrixEngine\Core\Keycode.h" />
     <ClInclude Include="src\MatrixEngine\Core\Layer.h" />
     <ClInclude Include="src\MatrixEngine\Core\LayerStack.h" />
+    <ClInclude Include="src\MatrixEngine\Core\MouseButton.h" />
     <ClInclude Include="src\MatrixEngine\Core\Window.h" />
     <ClInclude Include="src\MatrixEngine\Events\ApplicationEvents.h" />
     <ClInclude Include="src\MatrixEngine\Events\Event.h" />
     <ClInclude Include="src\MatrixEngine\Events\Events.h" />
     <ClInclude Include="src\MatrixEngine\Events\KeyBoardEvents.h" />
     <ClInclude Include="src\MatrixEngine\Events\MouseEvents.h" />
+    <ClInclude Include="src\MatrixEngine\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\MatrixEngine\LoggingSystem\Core.h" />
     <ClInclude Include="src\MatrixEngine\LoggingSystem\Logger.h" />
+    <ClInclude Include="src\MatrixEngine\RenderSystem\Core.h" />
+    <ClInclude Include="src\MatrixEngine\RenderSystem\RenderSystem.h" />
+    <ClInclude Include="src\MatrixEngine\RenderSystem\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\MatrixEngine\RenderSystem\Renderer\Renderer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
@@ -160,12 +169,24 @@
     <ClCompile Include="src\MatrixEngine\Events\ApplicationEvents.cpp" />
     <ClCompile Include="src\MatrixEngine\Events\KeyBoardEvents.cpp" />
     <ClCompile Include="src\MatrixEngine\Events\MouseEvents.cpp" />
+    <ClCompile Include="src\MatrixEngine\ImGui\ImGuiBuild.cpp" />
+    <ClCompile Include="src\MatrixEngine\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\MatrixEngine\LoggingSystem\Logger.cpp" />
+    <ClCompile Include="src\MatrixEngine\RenderSystem\Renderer\GraphicsContext.cpp" />
+    <ClCompile Include="src\MatrixEngine\RenderSystem\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">
       <Project>{154B857C-0182-860D-AA6E-6C109684020F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="vendor\Glad\Glad.vcxproj">
+      <Project>{BDD6857C-A90D-870D-52FA-6C103E10030F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="vendor\imgui\ImGui.vcxproj">
+      <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

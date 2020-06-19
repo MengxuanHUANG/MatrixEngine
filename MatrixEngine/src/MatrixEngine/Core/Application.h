@@ -1,13 +1,15 @@
 #pragma once
-#include"Window.h"
 #include "Core.h"
+
+#include"Window.h"
+
 #include "LayerStack.h"
+#include "MatrixEngine/Events/Events.h"
+
+#include "MatrixEngine/ImGui/ImGuiLayer.h"
 
 namespace MatrixEngine
 {
-	class Event;
-	class WindowCloseEvent;
-
 	class Application
 	{
 	public:
@@ -21,12 +23,14 @@ namespace MatrixEngine
 		void PushLayer(Layer* layer);
 		void PushSuperLayer(Layer* layer);
 
-		inline static Application* GetApplication() { return s_Instance; }
-
+		inline static Application& GetApp() { return *s_Instance; }
+		inline Window& GetWindow() { return *s_Window; }
 	private:
 		bool m_Running;
-		Scope<Window> s_Window;
+		Window* s_Window;
 		LayerStack m_LayerStack;
+
+		ImGuiLayer* m_UILayer;
 
 		static Application* s_Instance;
 	};

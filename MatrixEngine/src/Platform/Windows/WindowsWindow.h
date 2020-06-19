@@ -1,5 +1,7 @@
 #pragma once
 #include "MatrixEngine/Core/Window.h"
+#include "MatrixEngine/RenderSystem/Renderer/GraphicsContext.h"
+
 #include <GLFW/glfw3.h>
 
 namespace MatrixEngine
@@ -32,8 +34,10 @@ namespace MatrixEngine
 			EventCallbackFn EventCallback;
 			bool VSync;
 		};
+		Scope<GraphicsContext> m_Context;
 
 		WindowData m_Data;
 		GLFWwindow* m_Window;
+
 	};
 }

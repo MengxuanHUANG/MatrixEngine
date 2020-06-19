@@ -42,6 +42,6 @@ namespace MatrixEngine
 
 		virtual void* GetNativeWindow() const = 0;
 
-		static Scope<Window> WindowCreate(const WinProps& props = WinProps());
+		static Window* WindowCreate(const WinProps& props = WinProps());
 	};	
 }

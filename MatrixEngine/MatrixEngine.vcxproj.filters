@@ -10,11 +10,23 @@
     <Filter Include="MatrixEngine\Events">
       <UniqueIdentifier>{74352B21-E096-082F-6904-4FE1D5643FEE}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MatrixEngine\ImGui">
+      <UniqueIdentifier>{BA0C6B9C-A6F0-2BF2-0F51-2645FB531674}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MatrixEngine\LoggingSystem">
       <UniqueIdentifier>{4B6C8A59-377C-362A-A035-9B488C6425C3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MatrixEngine\RenderSystem">
+      <UniqueIdentifier>{E4F6ADA3-50B9-E12D-9969-70BA056BBA0B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MatrixEngine\RenderSystem\Renderer">
+      <UniqueIdentifier>{0A3BB74D-F676-BAB7-5F89-D2AE4BE462D2}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\OpenGL">
+      <UniqueIdentifier>{1E7D2C1D-8A08-9AE1-9319-1DD6FF23F6E1}</UniqueIdentifier>
     </Filter>
     <Filter Include="Platform\Windows">
       <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
@@ -23,9 +35,6 @@
   <ItemGroup>
     <ClInclude Include="src\MXpch.h" />
     <ClInclude Include="src\MatrixEngine.h" />
-    <ClInclude Include="src\MatrixEngine\Core.h">
-      <Filter>MatrixEngine</Filter>
-    </ClInclude>
     <ClInclude Include="src\MatrixEngine\Core\Application.h">
       <Filter>MatrixEngine\Core</Filter>
     </ClInclude>
@@ -35,10 +44,19 @@
     <ClInclude Include="src\MatrixEngine\Core\EntryPoint.h">
       <Filter>MatrixEngine\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\MatrixEngine\Core\Input.h">
+      <Filter>MatrixEngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MatrixEngine\Core\Keycode.h">
+      <Filter>MatrixEngine\Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\MatrixEngine\Core\Layer.h">
       <Filter>MatrixEngine\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\MatrixEngine\Core\LayerStack.h">
+      <Filter>MatrixEngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MatrixEngine\Core\MouseButton.h">
       <Filter>MatrixEngine\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\MatrixEngine\Core\Window.h">
@@ -59,11 +77,32 @@
     <ClInclude Include="src\MatrixEngine\Events\MouseEvents.h">
       <Filter>MatrixEngine\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\MatrixEngine\ImGui\ImGuiLayer.h">
+      <Filter>MatrixEngine\ImGui</Filter>
+    </ClInclude>
     <ClInclude Include="src\MatrixEngine\LoggingSystem\Core.h">
       <Filter>MatrixEngine\LoggingSystem</Filter>
     </ClInclude>
     <ClInclude Include="src\MatrixEngine\LoggingSystem\Logger.h">
       <Filter>MatrixEngine\LoggingSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MatrixEngine\RenderSystem\Core.h">
+      <Filter>MatrixEngine\RenderSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MatrixEngine\RenderSystem\RenderSystem.h">
+      <Filter>MatrixEngine\RenderSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MatrixEngine\RenderSystem\Renderer\GraphicsContext.h">
+      <Filter>MatrixEngine\RenderSystem\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MatrixEngine\RenderSystem\Renderer\Renderer.h">
+      <Filter>MatrixEngine\RenderSystem\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h">
+      <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
@@ -92,8 +131,26 @@
     <ClCompile Include="src\MatrixEngine\Events\MouseEvents.cpp">
       <Filter>MatrixEngine\Events</Filter>
     </ClCompile>
+    <ClCompile Include="src\MatrixEngine\ImGui\ImGuiBuild.cpp">
+      <Filter>MatrixEngine\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MatrixEngine\ImGui\ImGuiLayer.cpp">
+      <Filter>MatrixEngine\ImGui</Filter>
+    </ClCompile>
     <ClCompile Include="src\MatrixEngine\LoggingSystem\Logger.cpp">
       <Filter>MatrixEngine\LoggingSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MatrixEngine\RenderSystem\Renderer\GraphicsContext.cpp">
+      <Filter>MatrixEngine\RenderSystem\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MatrixEngine\RenderSystem\Renderer\Renderer.cpp">
+      <Filter>MatrixEngine\RenderSystem\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
+      <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>Platform\Windows</Filter>

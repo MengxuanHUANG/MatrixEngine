@@ -13,9 +13,14 @@ startproject "Sandbox"
 
 --Include dirctories relative to root folder (solution directory)
 IncludeDir = {}
-IncludeDir["GLFW"] = "MatrixEngine/vendor/GLFW/include"
+IncludeDir["GLFW"]	= "MatrixEngine/vendor/GLFW/include"
+IncludeDir["Glad"]	= "MatrixEngine/vendor/Glad/include"
+IncludeDir["ImGui"] = "MatrixEngine/vendor/imgui"
+IncludeDir["glm"]	= "MatrixEngine/vendor/glm"
 
 include "MatrixEngine/vendor/GLFW"
+include "MatrixEngine/vendor/Glad"
+include "MatrixEngine/vendor/imgui"
 
 project "MatrixEngine"
 	location "MatrixEngine"
@@ -45,12 +50,17 @@ project "MatrixEngine"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 
 	links
 	{
-		"GLFW"
+		"GLFW",
+		"Glad",
+		"ImGui"
 	}
 
 	filter "system:windows"
@@ -95,7 +105,10 @@ project "Sandbox"
 	includedirs
 	{
 		"MatrixEngine/src",
-		"MatrixEngine/vendor/spdlog/include"
+		"MatrixEngine/vendor/spdlog/include",
+		"MatrixEngine/vendor/Glad/include",
+		"MatrixEngine/vendor",
+		"%{IncludeDir.glm}"
 	}
 
 	filter "system:windows"

@@ -12,9 +12,9 @@ namespace MatrixEngine
 		virtual ~Layer() = default;
 
 		virtual void OnAttach() {}
-		virtual void OnDetch() {}
-		virtual void OnUpdata() {}
-		virtual void OnImGuiUpdate() {}
+		virtual void OnDetach() {}
+		virtual void OnUpdate() {}
+		virtual void OnImGuiRender() {}
 		virtual void OnEvent(Event& event) {}
 	protected:
 		std::string m_Name;

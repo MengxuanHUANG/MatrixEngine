@@ -1,8 +1,7 @@
 #include"MXpch.h"
 #include"Application.h"
 
-#include"MatrixEngine/LoggingSystem/Logger.h"
-#include"MatrixEngine/Events/Events.h"
+#include "Input.h"
 
 namespace MatrixEngine
 {
@@ -16,6 +15,9 @@ namespace MatrixEngine
 
 		s_Window = Window::WindowCreate();
 		s_Window->SetEventCallback(MX_BIND_EVENT_FN(Application::OnEvent));
+
+		m_UILayer = new ImGuiLayer();
+		PushSuperLayer(m_UILayer);
 	}
 	void Application::OnEvent(Event& event)
 	{
@@ -27,21 +29,27 @@ namespace MatrixEngine
 		{
 			(*(--it))->OnEvent(event);
 			if (event.m_Handled) break;
-			
 		}
 	}
 	void Application::Run()
 	{
 		while (m_Running)
 		{
+			glClearColor(0.2f, 0.2f, 0.2f, 1);
+			glClear(GL_COLOR_BUFFER_BIT);
+
 			for (auto layer : m_LayerStack)
 			{
-				layer->OnUpdata();
+				layer->OnUpdate();
 			}
-			for (auto layer : m_LayerStack)
+
+			m_UILayer->Begin();
+			for (Layer* layer : m_LayerStack)
 			{
-				layer->OnImGuiUpdate();
+				layer->OnImGuiRender();
 			}
+			m_UILayer->End();
+
 			s_Window->OnUpdate();
 		}
 	}

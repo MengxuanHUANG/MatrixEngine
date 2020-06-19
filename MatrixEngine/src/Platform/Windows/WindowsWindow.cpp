@@ -9,7 +9,7 @@ namespace MatrixEngine
 
 	static void GLFWErrorCallback(int error, const char* description)
 	{
-		MX_ENGINE_ERROR("GLDW Error({0}): {1}", error, description);
+		MX_ENGINE_ERROR("GLFW Error({0}): {1}", error, description);
 	}
 
 	WindowsWindow::WindowsWindow(const WinProps& props)
@@ -36,7 +36,12 @@ namespace MatrixEngine
 		}
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
-		glfwMakeContextCurrent(m_Window);
+		m_Context = GraphicsContext::CreateContext((void*)m_Window);
+		m_Context->Init();
+
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		MX_ENGINE_ASSERT(status, "Failed to iniitalize Glad!");
+
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 
@@ -133,7 +138,7 @@ namespace MatrixEngine
 	void WindowsWindow::OnUpdate()
 	{
 		glfwPollEvents();
-		glfwSwapBuffers(m_Window);
+		m_Context->SwapBuffers();
 	}
 	void WindowsWindow::Shutdown()
 	{
