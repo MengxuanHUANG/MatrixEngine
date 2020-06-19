@@ -4,6 +4,4 @@
 [submodule "MatrixEngine/vendor/GLFW"]
 	path = MatrixEngine/vendor/GLFW
 	url = https://github.com/TheCherno/glfw.git
-[submodule "MatrixEngine/vendor/imgui"]
-	path = MatrixEngine/vendor/imgui
-	url = https://github.com/TheCherno/imgui
+
