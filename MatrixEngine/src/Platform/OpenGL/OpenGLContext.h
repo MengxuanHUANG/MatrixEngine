@@ -1,8 +1,7 @@
 #pragma once
+#include <GLFW/glfw3.h>
 
 #include "MatrixEngine/RenderSystem/Renderer/GraphicsContext.h"
-
-#include <GLFW/glfw3.h>
 
 namespace MatrixEngine
 {

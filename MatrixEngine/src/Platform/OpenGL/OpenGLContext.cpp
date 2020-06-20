@@ -1,5 +1,4 @@
 #include "MXpch.h"
-
 #include "OpenGLContext.h"
 
 namespace MatrixEngine

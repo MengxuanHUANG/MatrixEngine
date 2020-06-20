@@ -17,6 +17,7 @@ IncludeDir["GLFW"]	= "MatrixEngine/vendor/GLFW/include"
 IncludeDir["Glad"]	= "MatrixEngine/vendor/Glad/include"
 IncludeDir["ImGui"] = "MatrixEngine/vendor/imgui"
 IncludeDir["glm"]	= "MatrixEngine/vendor/glm"
+IncludeDir["stb_image"] = "MatrixEngine/vendor/stb_image"
 
 include "MatrixEngine/vendor/GLFW"
 include "MatrixEngine/vendor/Glad"
@@ -38,7 +39,12 @@ project "MatrixEngine"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/stb_image/**.h",
+		"%{prj.name}/vendor/stb_image/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl",
+		"%{prj.name}/vendor/glm/glm/**.h"
 	}
 
 	defines
@@ -53,13 +59,15 @@ project "MatrixEngine"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.stb_image}"
 	}
 
 	links
 	{
 		"GLFW",
 		"Glad",
+		"opengl32.lib",
 		"ImGui"
 	}
 
@@ -106,6 +114,7 @@ project "Sandbox"
 	{
 		"MatrixEngine/src",
 		"MatrixEngine/vendor/spdlog/include",
+		"MatrixEngine/vendor/GLFW/include",
 		"MatrixEngine/vendor/Glad/include",
 		"MatrixEngine/vendor",
 		"%{IncludeDir.glm}"

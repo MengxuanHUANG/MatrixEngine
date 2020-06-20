@@ -8,7 +8,7 @@ class SandboxApp :public MatrixEngine::Application
 public:
 	SandboxApp()
 	{
-		PushLayer(new ExampleLayer("ExampleLayer"));
+		PushLayer(new ExampleLayer());
 	}
 	~SandboxApp()
 	{

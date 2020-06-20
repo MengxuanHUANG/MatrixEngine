@@ -1,7 +1,5 @@
 #pragma once
 
-#include "MatrixEngine/Core/Core.h"
-
 namespace MatrixEngine
 {
 	class GraphicsContext

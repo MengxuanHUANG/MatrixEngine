@@ -3,7 +3,6 @@
 #include<memory>
 #include<functional>
 
-#include "Core.h"
 #include "MatrixEngine/Events/Events.h"
 
 namespace MatrixEngine

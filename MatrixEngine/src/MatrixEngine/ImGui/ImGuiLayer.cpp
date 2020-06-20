@@ -60,7 +60,7 @@ namespace MatrixEngine
 		ImGui::DestroyContext();
 	}
 
-	void ImGuiLayer::OnImGuiRender()
+	void ImGuiLayer::OnImGuiRender(float timestep)
 	{
 		static bool show = true;
 		ImGui::ShowDemoWindow(&show);

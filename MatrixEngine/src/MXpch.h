@@ -1,6 +1,7 @@
 #pragma once
 
 #include<iostream>
+#include<stdio.h>
 #include<fstream>
 
 #include<string>
@@ -15,7 +16,11 @@
 #include<unordered_map>
 #include<unordered_set>
 
-#include"MatrixEngine/LoggingSystem/Logger.h"
+//Mathematic Support
+#include "glm/glm.hpp"
+
+#include "MatrixEngine/SmartPointer/SmartPointer.h"
+#include "MatrixEngine/LoggingSystem/Logger.h"
 
 #ifdef MX_PLATFORM_WINDOWS
 #include<Windows.h>

@@ -1,6 +1,4 @@
 #pragma once
-#include "Core.h"
-
 #include"Window.h"
 
 #include "LayerStack.h"
@@ -19,6 +17,7 @@ namespace MatrixEngine
 		void Run();
 		void OnEvent(Event& event);
 		bool OnWindowClose(WindowCloseEvent& event);
+		bool OnWindowResize(WindowResizeEvent& event);
 
 		void PushLayer(Layer* layer);
 		void PushSuperLayer(Layer* layer);
@@ -31,8 +30,9 @@ namespace MatrixEngine
 		LayerStack m_LayerStack;
 
 		ImGuiLayer* m_UILayer;
-
+		float m_LastFrameTime = 0;
 		static Application* s_Instance;
+		bool m_Minimize = false;
 	};
 
 	Application* CreateApp();
