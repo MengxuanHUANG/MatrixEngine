@@ -140,6 +140,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\MatrixEngine\RenderSystem\Renderer\Renderer3D.h" />
     <ClInclude Include="src\MXpch.h" />
     <ClInclude Include="src\MatrixEngine.h" />
     <ClInclude Include="src\MatrixEngine\Core\Application.h" />
@@ -600,6 +601,7 @@
     <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\MatrixEngine\RenderSystem\Renderer\Renderer3D.cpp" />
     <ClCompile Include="src\MXpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>

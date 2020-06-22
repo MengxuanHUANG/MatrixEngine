@@ -41,6 +41,6 @@ namespace MatrixEngine
 
 		virtual void* GetNativeWindow() const = 0;
 
-		static Window* WindowCreate(const WinProps& props = WinProps());
+		static Window* WindowCreate(EventCallbackFn fn, const WinProps& props = WinProps());
 	};	
 }

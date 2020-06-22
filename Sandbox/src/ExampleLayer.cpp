@@ -37,22 +37,27 @@ void ExampleLayer::OnUpdate(MatrixEngine::Timestep timestep)
 		}
 	}
 	//Updata Camera
+	m_CameraController.GetCamera().SetPosition(m_CameraPosition);
+	m_CameraController.GetCamera().SetRotation(m_CameraRotation);
 
-	m_CameraController.OnUpdata(timestep);
+	m_CameraController.OnUpdata(timestep, m_CameraPosition, m_CameraRotation);
+	
 
 	//Set BackGround Color
 	MatrixEngine::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1.0f });
 	MatrixEngine::RenderCommand::Clear();
 
 	//Start a new Scene
-	MatrixEngine::Renderer2D::BeginScene(m_CameraController.GetCamera());
+	MatrixEngine::Renderer3D::BeginScene(m_CameraController.GetCamera());
 
-	MatrixEngine::Renderer2D::DrawQuad({ 0.0f, 0.0f }, { m_SquareSize.x, m_SquareSize.y }, m_Rotation, m_Texture_2);
-	//MatrixEngine::Renderer2D::DrawQuad({ 0.5f, -0.5f }, { 0.5f, 0.75f }, m_SquareColor);
-	MatrixEngine::Renderer2D::DrawQuad({ 0.0f, 0.0f, -0.1f }, { 5.0f, 5.0f }, 0.0f, m_Texture, 10.0f);
+	//MatrixEngine::Renderer2D::DrawQuad({ 0.0f, 0.0f }, { m_SquareSize.x, m_SquareSize.y }, m_Rotation, m_Texture_2);
+	//MatrixEngine::Renderer2D::DrawQuad({ 0.5f, -0.5f, 0.0f }, { 0.5f, 0.75f}, m_Rotation, m_SquareColor);
+	//MatrixEngine::Renderer2D::DrawQuad({ 0.0f, 0.0f, -0.1f }, { 5.0f, 5.0f }, 0.0f, m_Texture, 10.0f);
+
+	MatrixEngine::Renderer3D::DrawCube({ 0.0f, 0.0f, 0.0f }, m_SquareSize, m_Rotation, m_Texture);
 
 	//End the Scene
-	MatrixEngine::Renderer2D::EndScene();
+	MatrixEngine::Renderer3D::EndScene();
 
 }
 
@@ -62,7 +67,7 @@ void ExampleLayer::OnImGuiRender(float timestep)
 	ImGui::SetWindowFontScale(2.0f);
 	ImGui::ColorEdit4("Square Color", glm::value_ptr(m_SquareColor));
 
-
+	ImGui::InputText("URL", m_NextFilepath, 100);
 
 	for (auto& result : m_ProfileResults)
 	{
@@ -85,14 +90,39 @@ void ExampleLayer::OnImGuiRender(float timestep)
 	ImGui::Text(m_FPS.c_str());
 	ImGui::End();
 
-	ImGui::Begin("Image");
+	ImGui::Begin("Camera-Position");
 	ImGui::SetWindowFontScale(2.0f);
+	ImGui::InputFloat("Size-X", &m_CameraPosition.x, 0.1f);
+	ImGui::InputFloat("Size-Y", &m_CameraPosition.y, 0.1f);
+	ImGui::InputFloat("Size-Z", &m_CameraPosition.z, 0.1f);
+	ImGui::End();
 
-	ImGui::InputText("URL", m_NextFilepath, 100);
+	ImGui::Begin("Camera-Rotation");
+	ImGui::SetWindowFontScale(2.0f);
+	ImGui::InputFloat("Size-X", &m_CameraRotation.x, 0.1f);
+	ImGui::InputFloat("Size-Y", &m_CameraRotation.y, 0.1f);
+	ImGui::InputFloat("Size-Z", &m_CameraRotation.z, 0.1f);
+	ImGui::End();
+
+	ImGui::Begin("Size");
+	ImGui::SetWindowFontScale(2.0f);
 	ImGui::InputFloat("Size-X", &m_SquareSize.x, 0.1f);
 	ImGui::InputFloat("Size-Y", &m_SquareSize.y, 0.1f);
-	ImGui::InputFloat("Rotation", &m_Rotation, 1.0f);
+	ImGui::InputFloat("Size-Z", &m_SquareSize.z, 0.1f);
+	ImGui::End();
 
+	ImGui::Begin("Rotation");
+	ImGui::SetWindowFontScale(2.0f);
+	ImGui::InputFloat("Rotation-X", &m_Rotation.x, 1.0f);
+	ImGui::InputFloat("Rotation-Y", &m_Rotation.y, 1.0f);
+	ImGui::InputFloat("Rotation-Z", &m_Rotation.z, 1.0f);
+	ImGui::End();
+
+	ImGui::Begin("Position");
+	ImGui::SetWindowFontScale(2.0f);
+	ImGui::InputFloat("Position-X", &m_SquarePosition.x, 0.1f);
+	ImGui::InputFloat("Position-Y", &m_SquarePosition.y, 0.1f);
+	ImGui::InputFloat("Position-Z", &m_SquarePosition.z, 0.1f);
 	ImGui::End();
 }
 

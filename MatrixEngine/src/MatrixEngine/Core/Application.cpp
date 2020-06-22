@@ -15,8 +15,7 @@ namespace MatrixEngine
 		MX_ENGINE_ASSERT(!s_Instance, "Application already exists!");
 		s_Instance = this;
 
-		s_Window = Window::WindowCreate();
-		s_Window->SetEventCallback(MX_BIND_EVENT_FN(Application::OnEvent));
+		s_Window = Window::WindowCreate(MX_BIND_EVENT_FN(Application::OnEvent));
 
 		MatrixEngine::Renderer::Init();
 
@@ -43,10 +42,6 @@ namespace MatrixEngine
 			float time = (float)glfwGetTime(); //Platform::GetTime()
 			Timestep timestep = time - m_LastFrameTime;
 			m_LastFrameTime = time;
-
-			glClearColor(0.2f, 0.2f, 0.2f, 1);
-			glClear(GL_COLOR_BUFFER_BIT);
-
 
 			if (!m_Minimize)
 			{

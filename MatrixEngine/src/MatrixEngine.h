@@ -24,6 +24,7 @@
 
 #include "MatrixEngine/RenderSystem/Renderer/Renderer.h"
 #include "MatrixEngine/RenderSystem/Renderer/Renderer2D.h"
+#include "MatrixEngine/RenderSystem/Renderer/Renderer3D.h"
 #include "MatrixEngine/RenderSystem/Renderer/RenderAPI.h"
 #include "MatrixEngine/RenderSystem/Renderer/RenderCommand.h"
 #include "MatrixEngine/RenderSystem/Renderer/Shader.h"

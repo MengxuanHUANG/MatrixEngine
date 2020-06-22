@@ -22,8 +22,13 @@ private:
 	MatrixEngine::Ref<MatrixEngine::Texture2D> m_Texture_2;
 
 	glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
-	glm::vec2 m_SquareSize = { 1.0f, 1.0f };
-	float m_Rotation = 0.0f;
+	
+	glm::vec3 m_SquarePosition = { 0.0f, 0.0f, 0.0f };
+	glm::vec3 m_SquareSize = { 1.0f, 1.0f, 1.0f };
+	glm::vec3 m_Rotation = { 0.0f, 0.0f, 0.0f };
+
+	glm::vec3 m_CameraRotation = { 0.0f, 0.0f, 0.0f };
+	glm::vec3 m_CameraPosition = { 0.0f, 0.0f, 0.0f };
 
 	std::string m_FPS;
 	unsigned int m_Count = 0;

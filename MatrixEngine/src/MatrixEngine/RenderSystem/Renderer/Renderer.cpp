@@ -3,7 +3,7 @@
 
 #include "RenderCommand.h"
 #include "Renderer2D.h"
-
+#include "Renderer3D.h"
 namespace MatrixEngine
 {
 	static bool RendererInited = false;
@@ -20,6 +20,7 @@ namespace MatrixEngine
 		MX_ENGINE_ASSERT(!RendererInited, "Renderer already exists!");
 		RenderCommand::Init();
 		Renderer2D::Init();
+		Renderer3D::Init();
 		RendererInited = true;
 	}
 	void Renderer::ShutDown()

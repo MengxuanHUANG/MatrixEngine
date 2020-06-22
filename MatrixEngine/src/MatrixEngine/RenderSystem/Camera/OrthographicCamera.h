@@ -11,14 +11,14 @@ namespace MatrixEngine
 		void SetProjection(float left, float right, float bottom, float top);
 
 		const glm::vec3& GetPosition() const { return m_Position; }
-		float GetRotaion() const { return m_Rotation; }
+		const glm::vec3& GetRotaion() const { return m_Rotation; }
 
-		void SetPostion(const glm::vec3& position) 
+		void SetPosition(const glm::vec3& position) 
 		{ 
 			m_Position = position; 
 			ReCalculateViewMatrix();
 		}
-		void SetRotation(float rotation) 
+		void SetRotation(const glm::vec3& rotation)
 		{ 
 			m_Rotation = rotation; 
 			ReCalculateViewMatrix();
@@ -38,6 +38,6 @@ namespace MatrixEngine
 		glm::mat4 m_ViewProjMatrix;
 
 		glm::vec3 m_Position;
-		float m_Rotation = 0.0f;
+		glm::vec3 m_Rotation;
 	};
 }

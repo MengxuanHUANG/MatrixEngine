@@ -9,7 +9,7 @@ namespace MatrixEngine
 	class WindowsWindow : public Window
 	{
 	public:
-		WindowsWindow(const WinProps& props);
+		WindowsWindow(EventCallbackFn fn, const WinProps& props);
 		~WindowsWindow();
 
 		inline virtual bool IsVSync() const override { return m_Data.VSync; }
@@ -23,7 +23,7 @@ namespace MatrixEngine
 		inline void SetEventCallback(const EventCallbackFn& callback) override { m_Data.EventCallback = callback; }
 
 	private:
-		void Init(const WinProps& props);
+		void Init(EventCallbackFn fn, const WinProps& props);
 		void Shutdown();
 	private:
 		struct WindowData

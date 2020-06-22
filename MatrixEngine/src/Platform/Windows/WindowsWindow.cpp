@@ -12,20 +12,20 @@ namespace MatrixEngine
 		MX_ENGINE_ERROR("GLFW Error({0}): {1}", error, description);
 	}
 
-	WindowsWindow::WindowsWindow(const WinProps& props)
+	WindowsWindow::WindowsWindow(EventCallbackFn fn, const WinProps& props)
 	{
-		Init(props);
+		Init(fn, props);
 	}
 	WindowsWindow::~WindowsWindow()
 	{
 		Shutdown();
 	}
-	void WindowsWindow::Init(const WinProps& props)
+	void WindowsWindow::Init(EventCallbackFn fn, const WinProps& props)
 	{
 		m_Data.Width = props.Width;
 		m_Data.Height = props.Height;
 		m_Data.Title = props.Title;
-
+		SetEventCallback(fn);
 		MX_ENGINE_INFO("Creating window {0} ({1}, {2})", props.Title, props.Width, props.Height);
 		if (!s_GLFWInitialized)
 		{
